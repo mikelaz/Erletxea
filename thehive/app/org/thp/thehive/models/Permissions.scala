@@ -25,6 +25,9 @@ object Permissions extends Perms {
   lazy val manageTask: PermissionDesc               = PermissionDesc("manageTask", "Manage tasks", "organisation")
   lazy val manageUser: PermissionDesc               = PermissionDesc("manageUser", "Manage users", "organisation", "admin")
   lazy val managePlatform: PermissionDesc           = PermissionDesc("managePlatform", "Manage TheHive platform", "admin")
+  lazy val deleteCase: PermissionDesc               = PermissionDesc("deleteCase", "Delete cases", "organisation")
+
+  // Mikel - Añadimos el permiso deleteCase
 
   lazy val list: Set[PermissionDesc] =
     Set(
@@ -49,7 +52,8 @@ object Permissions extends Perms {
       manageTag,
       manageTask,
       manageTaxonomy,
-      manageUser
+      manageUser,
+      deleteCase
     )
 
   // These permissions are available only if the user is in admin organisation, they are removed for other organisations

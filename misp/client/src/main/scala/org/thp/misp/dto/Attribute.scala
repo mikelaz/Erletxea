@@ -26,17 +26,21 @@ case class Attribute(
 
 object Attribute {
 
+  // Mikel - MISP 2.5 sends id and org_id as int instead of String
+  val readStringFromInt: Reads[String] = implicitly[Reads[Int]]
+    .map(x => x.toString)
+
   def parseDate(s: String): Date =
     javax.xml.bind.DatatypeConverter.parseDateTime(s).getTime
 
   implicit val reads: Reads[Attribute] =
-    ((JsPath \ "id").read[String] and
+    (((JsPath \ "id").read[String] or (JsPath \ "id").read[String](readStringFromInt)) and
       (JsPath \ "type").read[String] and
       (JsPath \ "category").read[String] and
       (JsPath \ "to_ids").read[Boolean] and
-      (JsPath \ "event_id").read[String] and
-      (JsPath \ "distribution").read[String].map(_.toInt) and
-      (JsPath \ "timestamp").read[String].map(t => new Date(t.toLong * 1000)) and
+      ((JsPath \ "event_id").read[String] or (JsPath \ "event_id").read[String](readStringFromInt)) and
+      ((JsPath \ "distribution").read[String].map(_.toInt) or (JsPath \ "distribution").read[Int])and
+      ((JsPath \ "timestamp").read[String].map(t => new Date(t.toLong * 1000)) or (JsPath \ "timestamp").read[Long].map(t => new Date(t * 1000))) and
       (JsPath \ "comment").readNullable[String] and
       (JsPath \ "deleted").read[Boolean] and
       (JsPath \ "data").readNullable[String].map(_.map(s => ("", "", Source.single(ByteString(Base64.getDecoder.decode(s)))))) and // TODO need check

@@ -1,5 +1,17 @@
 # Change Log
 
+## Erletxea Project
+
+## [4.2.0](https://github.com/mikelaz/Erletxea) (2026-01-20)
+
+**Implemented enhancements:**
+
+- [Enhancement] deleteCase permission created and adapted backend and frontend to allow case deletion only to users with this permission
+
+- [Enhancement] MISP plugin adapted to make it compatible with MISP versions 2.5.x
+
+## Original TheHive Project
+
 ## [4.1.24](https://github.com/TheHive-Project/TheHive/milestone/95) (2022-09-12)
 
 **Fixed bugs:**

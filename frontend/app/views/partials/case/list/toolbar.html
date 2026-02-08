@@ -28,7 +28,8 @@
                         <a href ng-click="$vm.bulkClose()"><i class="fa fa-folder"></i> Close</a>
                     </li>
                     <li ng-if="$vm.menu.delete" class="divider"></li>
-                    <li>
+                    <!-- Mikel - Mostrar Delete Case si tiene el permiso -->
+                    <li if-permission="deleteCase">
                         <a href ng-click="$vm.bulkRemove()"><i class="fa fa-trash"></i> Delete</a>
                     </li>
                 </ul>

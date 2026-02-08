@@ -93,7 +93,7 @@
                   </li>
                 </ul> -->
             </span>
-
+            
             <span class="ml-xxs pull-right" ng-if="appConfig.connectors.misp.enabled" if-permission="manageShare" allowed="{{userPermissions}}">
                 <span class="mr-xxs text-primary">|</span>
                 <a href ng-click="exportToMisp()" class="text-primary noline" uib-tooltip="Export case">
@@ -101,8 +101,8 @@
                     Export ({{existingExports}})
                 </a>
             </span>
-
-            <span class="ml-xxs pull-right">
+            <!-- Mikel - Mostrar Delete Case si tiene el permiso -->
+            <span class="ml-xxs pull-right" if-permission="deleteCase" allowed="{{userPermissions}}">
                 <a href ng-click="removeCase()" class="text-danger noline" uib-tooltip="Permanently Remove case">
                     <i class="text-danger fa fa-times"></i>
                     Remove

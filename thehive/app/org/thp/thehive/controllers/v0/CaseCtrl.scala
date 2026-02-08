@@ -134,6 +134,7 @@ class CaseCtrl @Inject() (
           .map(richCases => Results.Ok(richCases.toJson))
       }
 
+  //Mikel - Modificamos el chequeo de permisos del usuario para comprobar si tiene deleteCase
   def delete(caseIdOrNumber: String): Action[AnyContent] =
     entrypoint("delete case")
       .authTransaction(db) { implicit request => implicit graph =>
@@ -141,7 +142,8 @@ class CaseCtrl @Inject() (
           c <-
             caseSrv
               .get(EntityIdOrName(caseIdOrNumber))
-              .can(Permissions.manageCase)
+              //.can(Permissions.manageCase)
+              .can(Permissions.deleteCase)
               .getOrFail("Case")
           _ <- caseSrv.delete(c)
         } yield Results.NoContent

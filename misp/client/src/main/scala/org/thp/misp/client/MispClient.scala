@@ -289,7 +289,9 @@ class MispClient(
     )
     post("events", event)
       .map { e =>
-        (e \ "Event" \ "id").as[String]
+        //(e \ "Event" \ "id").as[String]
+        // Mikel - MISP +2.5 returns Event/id as Int
+        (e \ "Event" \ "id").as[Int].toString
       }
       .flatMap { eventId =>
         Future

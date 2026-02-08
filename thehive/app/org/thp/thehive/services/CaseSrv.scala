@@ -229,7 +229,9 @@ class CaseSrv @Inject() (
     attachmentSrv.create(file).flatMap(attachment => createObservable(`case`, observable, attachment))
 
   override def delete(`case`: Case with Entity)(implicit graph: Graph, authContext: AuthContext): Try[Unit] = {
-    val details = Json.obj("number" -> `case`.number, "title" -> `case`.title)
+    //val details = Json.obj("number" -> `case`.number, "title" -> `case`.title)
+    // Mikel - Añadimos authContext.userId al JSON
+    val details = Json.obj("number" -> `case`.number, "title" -> `case`.title, "deleted_by" -> authContext.userId)
     organisationSrv.get(authContext.organisation).getOrFail("Organisation").flatMap { organisation =>
       shareSrv
         .get(`case`, authContext.organisation)

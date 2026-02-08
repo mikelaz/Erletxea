@@ -35,6 +35,7 @@
                         managePlatform: 'Manage the platform'
                     }
                 },
+                // Mikel - Añadimos el permiso deleteCase 
                 org: {
                     hints: 'Permissions for organisation user profiles',
                     keys: [
@@ -49,7 +50,8 @@
                         'manageProcedure',
                         'manageAction',
                         'manageAnalyse',
-                        'accessTheHiveFS'
+                        'accessTheHiveFS',
+                        'deleteCase'
                     ],
                     labels: {
                         manageUser: 'Manage users',
@@ -63,7 +65,8 @@
                         manageProcedure: 'Manage TTPs',
                         manageAction: 'Run Cortex responders',
                         manageAnalyse: 'Run Cortex analyzer',
-                        accessTheHiveFS: 'Access to TheHiveFS service'
+                        accessTheHiveFS: 'Access to TheHiveFS service',
+                        deleteCase: 'Delete Cases'
                     }
                 }
             };

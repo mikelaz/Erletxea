@@ -502,6 +502,16 @@ class TheHiveSchemaDefinition @Inject() extends Schema with UpdatableSchema {
     .removeIndex("Case", IndexType.unique, "number")
     .removeIndex("ResolutionStatus", IndexType.unique, "value")
 
+    //=====[release 4.2.0 - Erletxea]=====
+    .updateGraph("Add deleteCase permission to org-admin and analyst profiles", "Profile") { traversal =>
+      traversal
+        .unsafeHas("name", P.within("org-admin", "analyst"))
+        .raw
+        .property("permissions", "deleteCase")
+        .iterate()
+      Success(())
+    }
+
   val reflectionClasses = new Reflections(
     new ConfigurationBuilder()
       .forPackages("org.thp.thehive.models")

@@ -11,7 +11,7 @@ version in Docker := {
   }
 }
 defaultLinuxInstallLocation in Docker := "/opt/thehive"
-dockerRepository := Some("thehiveproject")
+dockerRepository := Some("erletxea")
 dockerUpdateLatest := !version.value.toUpperCase.contains("RC") && !version.value.contains("SNAPSHOT")
 dockerExposedPorts := Seq(9000)
 mappings in Docker ++= Seq(
@@ -23,9 +23,12 @@ mappings in Docker ++= Seq(
 mappings in Docker ~= (_.filterNot {
   case (_, filepath) => filepath == "/opt/thehive/conf/application.conf"
 })
+// Mikel - sustituimos la imagen base sobre la que construir el contenedor
 dockerCommands := Seq(
-  Cmd("FROM", "openjdk:8"),
-  Cmd("LABEL", "MAINTAINER=\"TheHive Project <support@thehive-project.org>\"", "repository=\"https://github.com/TheHive-Project/TheHive\""),
+  //Cmd("FROM", "openjdk:8"),
+  //Cmd("FROM", "openjdk:8u342-jdk"),
+  Cmd("FROM", "openjdk:11.0.16-jdk"),
+  Cmd("LABEL", "MAINTAINER=\"Erletxea - TheHive Fork\"", "repository=\"https://github.com/TheHive-Project/TheHive\""),
   Cmd("WORKDIR", "/opt/thehive"),
   // format: off
   Cmd("RUN",

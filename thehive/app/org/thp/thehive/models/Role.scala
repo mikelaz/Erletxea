@@ -13,6 +13,8 @@ case class Profile(name: String, permissions: Set[Permission]) {
   def isEditable: Boolean = name != Profile.admin.name && name != Profile.orgAdmin.name
 }
 
+// Mikel - Añadimos el permiso deleteCase
+
 object Profile {
   val admin: Profile = Profile("admin", Permissions.adminPermissions)
 
@@ -28,7 +30,8 @@ object Profile {
       Permissions.manageAnalyse,
       Permissions.managePage,
       Permissions.accessTheHiveFS,
-      Permissions.manageProcedure
+      Permissions.manageProcedure,
+      Permissions.deleteCase
     )
   )
   val readonly: Profile           = Profile("read-only", Set.empty)
