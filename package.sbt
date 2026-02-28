@@ -15,8 +15,9 @@ mappings in Universal ~= {
 }
 
 // Package //
-packageName := "thehive4"
-maintainer := "TheHive Project <support@thehive-project.org>"
+//packageName := "thehive4"
+//maintainer := "TheHive Project <support@thehive-project.org>"
+packageName := "erletxea"
 packageSummary := "Scalable, Open Source and Free Security Incident Response Solutions"
 packageDescription :=
   """TheHive is a scalable 3-in-1 open source and free security incident response

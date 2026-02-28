@@ -2,9 +2,9 @@ import Dependencies._
 import com.typesafe.sbt.packager.Keys.bashScriptDefines
 import org.thp.ghcl.Milestone
 
-// Mikel - Pasamos de 4.1.24 a 4.2.0
+// Erletxea - Based on TheHive 4.1.24
 //val thehiveVersion         = "4.1.24-1"
-val thehiveVersion         = "4.2.0-1"
+val thehiveVersion         = "4.2.0-2"
 val scala212               = "2.12.13"
 val scala213               = "2.13.1"
 val supportedScalaVersions = List(scala212, scala213)

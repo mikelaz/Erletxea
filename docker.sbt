@@ -26,10 +26,14 @@ mappings in Docker ~= (_.filterNot {
 // Mikel - sustituimos la imagen base sobre la que construir el contenedor
 dockerCommands := Seq(
   //Cmd("FROM", "openjdk:8"),
-  //Cmd("FROM", "openjdk:8u342-jdk"),
-  Cmd("FROM", "openjdk:11.0.16-jdk"),
-  Cmd("LABEL", "MAINTAINER=\"Erletxea - TheHive Fork\"", "repository=\"https://github.com/TheHive-Project/TheHive\""),
+  Cmd("FROM", "eclipse-temurin:8-jdk-noble"),
+  Cmd("LABEL", "MAINTAINER=\"Erletxea - TheHive Fork\"", "repository=\"https://github.com/mikelaz/Erletxea\""),
   Cmd("WORKDIR", "/opt/thehive"),
+  // Erletxea - Remove the default user 'ubuntu' and its group 
+  // to be able to create thehive user with sid 1000 and thehive group with gid 1000
+  Cmd("RUN",
+    "userdel", "-r", "ubuntu", "&&",
+    "groupdel", "ubuntu", "||", "true"),
   // format: off
   Cmd("RUN",
     "apt", "update", "&&",

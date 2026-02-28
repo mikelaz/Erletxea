@@ -1,10 +1,10 @@
 {
     "name": "thehive",
-    "version": "4.2.0-1",
+    "version": "4.2.0-2",
     "license": "AGPL-3.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/TheHive-Project/TheHive.git"
+        "url": "https://github.com/mikelaz/Erletxea.git"
     },
     "bugs": {
         "url": "https://github.com/TheHive-Project/TheHive/issues"

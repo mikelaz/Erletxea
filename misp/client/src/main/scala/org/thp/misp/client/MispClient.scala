@@ -291,7 +291,8 @@ class MispClient(
       .map { e =>
         //(e \ "Event" \ "id").as[String]
         // Mikel - MISP +2.5 returns Event/id as Int
-        (e \ "Event" \ "id").as[Int].toString
+        //(e \ "Event" \ "id").as[Int].toString
+        (e \ "Event" \ "id").asOpt[String].getOrElse((e \ "Event" \ "id").as[Int].toString)
       }
       .flatMap { eventId =>
         Future
