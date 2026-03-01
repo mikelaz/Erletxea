@@ -27,7 +27,10 @@ mappings in Docker ~= (_.filterNot {
 dockerCommands := Seq(
   //Cmd("FROM", "openjdk:8"),
   Cmd("FROM", "eclipse-temurin:8-jdk-noble"),
-  Cmd("LABEL", "MAINTAINER=\"Erletxea - TheHive Fork\"", "repository=\"https://github.com/mikelaz/Erletxea\""),
+  //Cmd("LABEL", "MAINTAINER=\"Erletxea - TheHive Fork\"", "repository=\"https://github.com/mikelaz/erletxea\""),
+  Cmd("LABEL", "org.opencontainers.image.source=https://github.com/mikelaz/erletxea"),
+  Cmd("LABEL", "org.opencontainers.image.description=\"Erletxea is a Fork of TheHive, a scalable 3-in-1 open source and free security incident response platform\""),
+  Cmd("LABEL", "org.opencontainers.image.licenses=AGPL-3.0-or-later"),
   Cmd("WORKDIR", "/opt/thehive"),
   // Erletxea - Remove the default user 'ubuntu' and its group 
   // to be able to create thehive user with sid 1000 and thehive group with gid 1000

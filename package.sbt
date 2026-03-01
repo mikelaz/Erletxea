@@ -20,7 +20,7 @@ mappings in Universal ~= {
 packageName := "erletxea"
 packageSummary := "Scalable, Open Source and Free Security Incident Response Solutions"
 packageDescription :=
-  """TheHive is a scalable 3-in-1 open source and free security incident response
+  """Erletxea is a Fork of TheHive, a scalable 3-in-1 open source and free security incident response
     | platform designed to make life easier for SOCs, CSIRTs, CERTs and any
     | information security practitioner dealing with security incidents that need to
     | be investigated and acted upon swiftly.""".stripMargin

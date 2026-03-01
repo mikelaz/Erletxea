@@ -2,7 +2,7 @@
 
 ## Erletxea Project
 
-## [4.2.0](https://github.com/mikelaz/Erletxea) (2026-01-20)
+## [4.2.0](https://github.com/mikelaz/erletxea) (2026-01-20)
 
 **Implemented enhancements:**
 
